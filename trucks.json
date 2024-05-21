@@ -1,0 +1,40 @@
+{
+  "trucks": [
+    {
+      "id": 1,
+      "name": "Ford F-150",
+      "image": "https://m.cnqixinggroup.com/uploads/202132520/lorry-truck11334966336.jpg",
+      "length_feet": 14
+    },
+    {
+      "id": 2,
+      "name": "Chevrolet Silverado",
+      "image": "https://image.shutterstock.com/image-photo/small-solo-truck-delivery-box-260nw-2237366807.jpg",
+      "length_feet": 17
+    },
+    {
+      "id": 3,
+      "name": "Ram 1500",
+      "image": "https://4.imimg.com/data4/MP/DB/MY-4940798/lorry-truck-500x500.jpg",
+      "length_feet": 20
+    },
+    {
+      "id": 4,
+      "name": "GMC Sierra",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/7/324095628/OV/BU/BJ/184635804/truck-transportation-services-250x250.jpg",
+      "length_feet": 19
+    },
+    {
+      "id": 5,
+      "name": "Toyota Tundra",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2022/12/AP/ST/HD/180832120/truck-500x500.png",
+      "length_feet": 32
+    },
+    {
+      "id": 6,
+      "name": "Nissan Titan",
+      "image": "https://www.fr8.in/_next/image?url=%2Fimages%2F19-feet.webp&w=1200&q=80",
+      "length_feet": 34
+    }
+  ]
+}
