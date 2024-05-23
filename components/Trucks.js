@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTruck } from "../businessTonsSlice";
 
 const Trucks = ({ data, toggle, setShowIndex }) => {
+  const dispatch = useDispatch();
   const clickHandler = () => {
     setShowIndex();
+    dispatch(addTruck(data.length_feet));
   };
   return (
     <div

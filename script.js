@@ -10,7 +10,6 @@ import Material from "./components/Material";
 import { Provider } from "react-redux";
 import { appStore } from "./appStore";
 import MoversDate from "./components/MoversDate";
-import MoversPhone from "./components/MoversPhone";
 import BookingPhone from "./components/BookingPhone";
 import BookingHouseDate from "./components/BookingHouseDate";
 import HouseMobile from "./components/HouseMobile";
@@ -18,6 +17,12 @@ import BookingHouseFare from "./components/BookingHouseFare";
 import BookTruck from "./components/BookTruck";
 import AddMaterial from "./components/AddMaterial";
 import MoversFare from "./components/MoversFare";
+import BookingDate from "./components/BookingDate";
+import BusinessTons from "./components/BusinessTons";
+import BusinessKgs from "./components/BusinessKgs";
+import BusinessKgsDate from "./components/BusinessKgsDate";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = () => {
@@ -81,6 +86,30 @@ const appRoute = createBrowserRouter([
   {
     path: "/booking/moversBooking",
     element: <MoversFare />,
+  },
+  {
+    path: "/booking/date",
+    element: <BookingDate />,
+  },
+  {
+    path: "/booking/businessTons",
+    element: <BusinessTons />,
+  },
+  {
+    path: "/booking/businessDate",
+    element: <BusinessKgsDate />,
+  },
+  {
+    path: "/booking/businessKgs",
+    element: <BusinessKgs />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 

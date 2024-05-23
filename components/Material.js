@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import MaterialsSuggestions from "./MaterialsSuggestions";
 import SelectedMaterials from "./SelectedMaterials";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addBusinessMaterials } from "../businessTonsSlice";
 
 const Material = () => {
   const details = useSelector((store) => store.details.details);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [materials, setMaterials] = useState(null);
   const [materials2, setMaterials2] = useState(null);
@@ -85,6 +87,7 @@ const Material = () => {
       </button>
       <button
         onClick={() => {
+          dispatch(addBusinessMaterials(selected));
           navigate("/booking/truck");
         }}
         style={{

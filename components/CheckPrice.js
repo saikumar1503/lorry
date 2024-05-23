@@ -49,7 +49,7 @@ const CheckPrice = () => {
   };
 
   return (
-    <div>
+    <div className="check-price-container">
       <form className="check-price-form" onSubmit={submitHandler}>
         <div className="input-container">
           <label htmlFor="pickUpCity">Enter pickup city</label>

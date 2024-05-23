@@ -34,7 +34,7 @@ const MoversFare = () => {
           <div className="detail-item">
             <span className="detail-label">Date:</span>
             <span className="detail-value">
-              {moversdata.moversDate.toString().slice(0, 15)}
+              {moversdata?.moversDate?.toString().slice(0, 15)}
             </span>
           </div>
           <div className="detail-item">

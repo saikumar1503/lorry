@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Dimensions from "./Dimensions";
 import HouseMaterialSuggestions from "./HouseMaterialSuggestions";
 import SelecetedHouseMaterial from "./SelecetedHouseMaterial";
+import {
+  addBusinessKgMaterials,
+  addBusinessKgWeight,
+} from "../businessKgsSlice";
 
 const AddMaterial = () => {
   const details = useSelector((store) => store.details.details);
@@ -128,7 +132,8 @@ const AddMaterial = () => {
         <button
           className="next-button"
           onClick={() => {
-            navigate("/booking/houseDate");
+            dispatch(addBusinessKgMaterials(material));
+            navigate("/booking/businessDate");
           }}
         >
           Next

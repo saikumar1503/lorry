@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addWeightTons } from "../businessTonsSlice";
 
 const Weight = () => {
   const details = useSelector((store) => store.details.details);
+  const dispatch = useDispatch();
   const [update, setUpdate] = useState({ weigh: "", type: "" });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -27,6 +29,7 @@ const Weight = () => {
     console.log(update);
     if (Object.values(validateResult).length == 0) {
       if (update.type == "Tons") {
+        dispatch(addWeightTons(update.weigh));
         navigate("/booking/material");
       } else {
         navigate("/booking/addMaterial");
