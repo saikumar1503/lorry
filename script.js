@@ -23,6 +23,7 @@ import BusinessKgs from "./components/BusinessKgs";
 import BusinessKgsDate from "./components/BusinessKgsDate";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import BookingStatus from "./components/BookingStatus";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = () => {
@@ -110,6 +111,10 @@ const appRoute = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/booking/status",
+    element: <BookingStatus />,
   },
 ]);
 

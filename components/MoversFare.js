@@ -1,9 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addBookings } from "../bookingsSlice";
 
 const MoversFare = () => {
   const moversdata = useSelector((store) => store.movers.moversData);
   const details = useSelector((store) => store.details.details);
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
   console.log(moversdata);
   return (
     <>
@@ -49,7 +53,22 @@ const MoversFare = () => {
           while we get back to you with more details regarding your order
           placement.
         </p>
-        <button className="confirm-button">Confirm Booking</button>
+        <button
+          onClick={() => {
+            dispatch(
+              addBookings({
+                type: "moversfare",
+                pickupLocation: details.pickUpLocation,
+                dropLocation: details.dropLocation,
+                materials: moversdata,
+              })
+            );
+            naviagte("/booking/status");
+          }}
+          className="confirm-button"
+        >
+          Confirm Booking
+        </button>
       </div>
     </>
   );

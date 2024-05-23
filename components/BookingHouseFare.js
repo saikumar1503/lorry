@@ -1,5 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addBookings } from "../bookingsSlice";
 
 const BookingHouseFare = () => {
   const store = useSelector((store) => store.houseFare.houseFare);
@@ -7,6 +9,8 @@ const BookingHouseFare = () => {
   const materialDetails = useSelector(
     (store) => store.houseFare.houseFare.material
   );
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -52,7 +56,17 @@ const BookingHouseFare = () => {
         <button
           className="confirm-button"
           onClick={() => {
-            alert("booking confirmed");
+            dispatch(
+              addBookings({
+                type: "housefare",
+                id: Math.trunc(Math.random() * 343285 * 2431),
+                pickupLocation: details.pickUpLocation,
+                dropLocation: details.dropLocation,
+                materialDetails: materialDetails,
+                date: store.date?.toString().slice(0, 15),
+              })
+            );
+            navigate("/booking/status");
           }}
         >
           Confirm Booking

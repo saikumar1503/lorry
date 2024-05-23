@@ -1,9 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addBookings } from "../bookingsSlice";
 
 const BusinessTons = () => {
   const materialDetails = useSelector((store) => store.businessTons.details);
   const details = useSelector((store) => store.details.details);
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -51,7 +55,16 @@ const BusinessTons = () => {
         <button
           className="confirm-button"
           onClick={() => {
-            alert("booking confirmed");
+            dispatch(
+              addBookings({
+                id: Math.trunc(Math.random() * 562 * 897),
+                type: "busniesstons",
+                pickupLocation: details.pickUpLocation,
+                dropLocation: details.dropLocation,
+                materials: materialDetails,
+              })
+            );
+            naviagte("/booking/status");
           }}
         >
           Confirm Booking

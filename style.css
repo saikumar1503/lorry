@@ -619,6 +619,7 @@ p {
 
 .truckimage {
   width: 80px;
+  mix-blend-mode: multiply;
 }
 .feet {
   display: flex;
@@ -945,4 +946,236 @@ p {
 
 .login-link a:hover {
   text-decoration: underline;
+}
+
+.booking-status {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  color: #333;
+}
+
+.booking-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.booking-item:hover {
+  background-color: #f1f1f1;
+}
+
+.housefare {
+  border-left: 5px solid #ff7f50;
+}
+
+.moversfare {
+  border-left: 5px solid #6a5acd;
+}
+
+.busniesstons {
+  border-left: 5px solid #20b2aa;
+}
+
+.busniesskg {
+  border-left: 5px solid #ff6347;
+}
+
+.location {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #00008b;
+}
+
+.material-details {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.material-item {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.material-weight,
+.material-quantity,
+.house-type,
+.total-weight,
+.weight-tons,
+.business-materials,
+.truck,
+.date {
+  font-size: 1em;
+  margin: 3px 0;
+}
+
+.date {
+  font-style: italic;
+  color: #555;
+}
+
+.booking-item p {
+  margin: 5px 0;
+}
+
+.material-item {
+  color: #2e8b57;
+}
+
+.material-weight {
+  color: #b22222;
+}
+
+.material-quantity {
+  color: #8b4513;
+}
+.booking-header {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+/* Container to center the form */
+.center-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main form container */
+.house-update-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox row */
+.house-update-container .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Individual fields within a row */
+.house-update-container .field {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.house-update-container .field:last-child {
+  margin-right: 0;
+}
+
+/* Headings */
+.house-update-container h3 {
+  margin: 10px 0 5px;
+}
+
+/* Input fields */
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Update button */
+.update-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-button:hover {
+  background-color: #218838;
+}
+
+/* Full-screen overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is on top */
+}
+
+/* Main form container */
+.house-update-container {
+  background: white; /* Ensure the form has a white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flexbox row */
+.house-update-container .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Individual fields within a row */
+.house-update-container .field {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.house-update-container .field:last-child {
+  margin-right: 0;
+}
+
+/* Headings */
+.house-update-container h3 {
+  margin: 10px 0 5px;
+}
+
+/* Input fields */
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Update button */
+.update-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-button:hover {
+  background-color: #218838;
 }
