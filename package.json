@@ -2,15 +2,16 @@
   "name": "truck",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "npx parcel index2.html",
+    "build": "npx parcel build index2.html",
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
+    "firebase": "^10.12.1",
     "json-server": "^1.0.0-beta.0",
     "moment": "^2.30.1",
     "moment-timezone": "^0.5.45",

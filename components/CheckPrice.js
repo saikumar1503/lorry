@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import CitySuggestions from "./CitySuggestions";
 import CitySuggestions2 from "./CitySuggestions2";
+import { trucks } from "../utilities/images";
 
 const CheckPrice = () => {
   const [pickUpCities, setPickUpCities] = useState({ pickupCity: "" });
@@ -28,7 +29,7 @@ const CheckPrice = () => {
   const validate = (formData) => {
     const errorsData = {};
     if (!formData.pickupCity) {
-      errorsData.pickupCity = "Pickup is required";
+      errorsData.pickupCity = "Pickup city is required";
     }
     if (!formData.dropCity) {
       errorsData.dropCity = "Dropcity is required";
@@ -49,67 +50,65 @@ const CheckPrice = () => {
   };
 
   return (
-    <div className="check-price-container">
-      <form className="check-price-form" onSubmit={submitHandler}>
-        <div className="input-container">
-          <label htmlFor="pickUpCity">Enter pickup city</label>
-          <input
-            id="pickUpCity"
-            name="pickUpCity"
-            value={pickUpCities.pickupCity}
-            placeholder="Enter pickup city"
-            onChange={(e) => {
-              setPickUpCities({ pickupCity: e.target.value });
+    <div className="main-check">
+      <div className="check-price-container">
+        <form className="check-price-form" onSubmit={submitHandler}>
+          <div className="input-container">
+            <label htmlFor="pickUpCity">Enter pickup city</label>
+            <input
+              id="pickUpCity"
+              name="pickUpCity"
+              value={pickUpCities.pickupCity}
+              placeholder="Enter pickup city"
+              onChange={(e) => {
+                setPickUpCities({ pickupCity: e.target.value });
 
-              const filtered = city.filter((cur) =>
-                cur.name
-                  .toLowerCase()
-                  .includes(pickUpCities.pickupCity.toLowerCase())
-              );
-              setCity2(filtered);
-            }}
-          />
-        </div>
-        <p style={{ color: "red" }}>{errors.pickupCity}</p>
-        {pickUpCities.pickupCity == ""
-          ? null
-          : city2?.map((cur) => (
-              <CitySuggestions
-                data={cur.name}
-                setPickUpCities={setPickUpCities}
-                setCity2={setCity2}
-              ></CitySuggestions>
-            ))}
-        <div className="input-container">
-          <label htmlFor="dropCity">Enter drop city</label>
-          <input
-            id="dropCity"
-            name="dropCity"
-            placeholder="Enter drop city"
-            value={dropCities.dropCity}
-            onChange={(e) => {
-              setDropCities({ dropCity: e.target.value });
-              const filtered = city.filter((cur) =>
-                cur.name
-                  .toLowerCase()
-                  .includes(dropCities.dropCity.toLowerCase())
-              );
-              setCity3(filtered);
-            }}
-          />
-          {dropCities.dropCity == ""
+                const filtered = city.filter((cur) =>
+                  cur.name.toLowerCase().includes(e.target.value.toLowerCase())
+                );
+                setCity2(filtered);
+              }}
+            />
+          </div>
+          <p style={{ color: "red" }}>{errors.pickupCity}</p>
+          {pickUpCities.pickupCity == ""
             ? null
-            : city3?.map((cur) => (
-                <CitySuggestions2
+            : city2?.map((cur) => (
+                <CitySuggestions
                   data={cur.name}
-                  setDropCities={setDropCities}
-                  setCity3={setCity3}
-                ></CitySuggestions2>
+                  setPickUpCities={setPickUpCities}
+                  setCity2={setCity2}
+                ></CitySuggestions>
               ))}
-          <p style={{ color: "red" }}>{errors.dropCity}</p>
-          <button className="checkPrice-btn">Check price</button>
-        </div>
-      </form>
+          <div className="input-container">
+            <label htmlFor="dropCity">Enter drop city</label>
+            <input
+              id="dropCity"
+              name="dropCity"
+              placeholder="Enter drop city"
+              value={dropCities.dropCity}
+              onChange={(e) => {
+                setDropCities({ dropCity: e.target.value });
+                const filtered = city.filter((cur) =>
+                  cur.name.toLowerCase().includes(e.target.value.toLowerCase())
+                );
+                setCity3(filtered);
+              }}
+            />
+            {dropCities.dropCity == ""
+              ? null
+              : city3?.map((cur) => (
+                  <CitySuggestions2
+                    data={cur.name}
+                    setDropCities={setDropCities}
+                    setCity3={setCity3}
+                  ></CitySuggestions2>
+                ))}
+            <p style={{ color: "red" }}>{errors.dropCity}</p>
+            <button className="checkPrice-btn">Check price</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

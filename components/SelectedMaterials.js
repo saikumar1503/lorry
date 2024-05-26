@@ -8,7 +8,7 @@ const SelectedMaterials = ({ data, selected, setSelected }) => {
         setSelected(filtered);
       }}
     >
-      <p>{data != "" ? `${data}❌` : null}</p>
+      <h4>{data != "" ? `${data}❌` : null}</h4>
     </div>
   );
 };

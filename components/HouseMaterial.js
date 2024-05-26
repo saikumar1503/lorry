@@ -4,6 +4,7 @@ import HouseMaterialSuggestions from "./HouseMaterialSuggestions";
 import SelecetedHouseMaterial from "./SelecetedHouseMaterial";
 import { useDispatch, useSelector } from "react-redux";
 import { addMaterial } from "../houseFareSlice";
+import { arrowURL } from "../utilities/images";
 
 const HouseMaterial = () => {
   const details = useSelector((store) => store.details.details);
@@ -29,6 +30,17 @@ const HouseMaterial = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>

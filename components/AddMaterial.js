@@ -8,6 +8,7 @@ import {
   addBusinessKgMaterials,
   addBusinessKgWeight,
 } from "../businessKgsSlice";
+import { arrowURL } from "../utilities/images";
 
 const AddMaterial = () => {
   const details = useSelector((store) => store.details.details);
@@ -35,6 +36,17 @@ const AddMaterial = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>
@@ -119,7 +131,6 @@ const AddMaterial = () => {
                 item: query,
                 weight: weight,
                 quantity: noOfItems,
-                type: type,
               },
             ]);
             setQuery("");

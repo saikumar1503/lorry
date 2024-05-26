@@ -8,6 +8,7 @@ import {
   addPickupFloor,
   addTotalWeight,
 } from "../moversSlice";
+import { arrowURL } from "../utilities/images";
 
 const Movers = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,17 @@ const Movers = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Trucks from "./Trucks";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { arrowURL } from "../utilities/images";
 const BookTruck = () => {
   const details = useSelector((store) => store.details.details);
   const [trucks, setTrucks] = useState(null);
@@ -23,6 +24,17 @@ const BookTruck = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addBookings } from "../bookingsSlice";
+import { arrowURL } from "../utilities/images";
 
 const BusinessTons = () => {
   const materialDetails = useSelector((store) => store.businessTons.details);
@@ -12,6 +13,17 @@ const BusinessTons = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>

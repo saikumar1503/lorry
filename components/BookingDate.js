@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addbusinessDate } from "../businessTonsSlice";
+import { arrowURL } from "../utilities/images";
 
 const BookingDate = () => {
   const details = useSelector((store) => store.details.details);
@@ -24,6 +25,17 @@ const BookingDate = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>

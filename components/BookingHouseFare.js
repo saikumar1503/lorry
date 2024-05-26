@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addBookings } from "../bookingsSlice";
+import { arrowURL } from "../utilities/images";
 
 const BookingHouseFare = () => {
   const store = useSelector((store) => store.houseFare.houseFare);
@@ -15,6 +16,17 @@ const BookingHouseFare = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>
@@ -59,7 +71,7 @@ const BookingHouseFare = () => {
             dispatch(
               addBookings({
                 type: "housefare",
-                id: Math.trunc(Math.random() * 343285 * 2431),
+                id: Math.trunc(Math.random() * 49838 * 324425),
                 pickupLocation: details.pickUpLocation,
                 dropLocation: details.dropLocation,
                 materialDetails: materialDetails,

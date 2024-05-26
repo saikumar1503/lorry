@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HouseUpdate from "./HouseUpdate";
+import { deleteBookings } from "../bookingsSlice";
 
 const BookingStatus = () => {
   const details = useSelector((store) => store.bookings);
+  const dispatch = useDispatch();
   const [state, setState] = useState("");
   console.log(details.bookingDetails);
   const [data, setData] = useState(details.bookingDetails);
   const [houseToggle, setHouseToggle] = useState(false);
+
+  if (data.length === 0) {
+    return <h2 className="no-bookings">No Bookings Found</h2>;
+  }
+
   return (
     <div>
       <div className="booking-status">
@@ -20,17 +27,17 @@ const BookingStatus = () => {
                   Pickup location: {ele?.pickupLocation}
                 </p>
                 <p className="location">Drop location: {ele?.dropLocation}</p>
-                {ele?.materialDetails?.map((material, index) => (
-                  <div key={index} className="material-details">
-                    <p className="material-item">Items : {material.item}</p>
-                    <p className="material-weight">
-                      quantity: {material.quantity}
-                    </p>
-                    <p className="material-weight">
-                      Weight: {material.weight} {material.type}
-                    </p>
-                  </div>
-                ))}
+                <div>
+                  <p className="material-item">Goods(Kgs/Tons):</p>
+                  {ele?.materialDetails?.map((material, index) => (
+                    <div key={index} className="material-details">
+                      <p>{material.item}</p>
+                      <p className="material-weight">
+                        Weight: {material.weight} {material.type}
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 <p className="date">Date: {ele?.date}</p>
                 <button
                   onClick={() => {
@@ -38,7 +45,16 @@ const BookingStatus = () => {
                     setHouseToggle(!houseToggle);
                   }}
                 >
-                  update
+                  Update
+                </button>
+                <button
+                  onClick={() => {
+                    const filtered = data.filter((cur) => ele.id !== cur.id);
+                    setData(filtered);
+                    dispatch(deleteBookings(filtered));
+                  }}
+                >
+                  Delete
                 </button>
               </div>
             );
@@ -64,7 +80,16 @@ const BookingStatus = () => {
                 <p className="date">
                   Date: {ele?.materials.moversDate.toString().slice(0, 15)}
                 </p>
-                <button>update</button>
+                <button>Update</button>
+                <button
+                  onClick={() => {
+                    const filtered = data.filter((cur) => ele.id !== cur.id);
+                    setData(filtered);
+                    dispatch(deleteBookings(filtered));
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             );
           } else if (ele.type === "busniesstons") {
@@ -75,10 +100,10 @@ const BookingStatus = () => {
                 </p>
                 <p className="location">Drop location: {ele.dropLocation}</p>
                 <p className="weight-tons">
-                  Weight: {ele.materials.weightTons} tons
+                  Weight(Tons): {ele.materials.weightTons} tons
                 </p>
                 <p className="business-materials">
-                  Materials: {ele.materials.businessMaterials.join(", ")}
+                  Goods: {ele.materials.businessMaterials.join(", ")}
                 </p>
                 <p className="truck">
                   Truck: {ele.materials.truck} feet container
@@ -92,7 +117,16 @@ const BookingStatus = () => {
                     setHouseToggle(!houseToggle);
                   }}
                 >
-                  update
+                  Update
+                </button>
+                <button
+                  onClick={() => {
+                    const filtered = data.filter((cur) => ele.id !== cur.id);
+                    setData(filtered);
+                    dispatch(deleteBookings(filtered));
+                  }}
+                >
+                  Delete
                 </button>
               </div>
             );
@@ -103,17 +137,17 @@ const BookingStatus = () => {
                   Pickup location: {ele.pickupLocation}
                 </p>
                 <p className="location">Drop location: {ele.dropLocation}</p>
-                {ele.materials.materials.map((cur, index) => (
-                  <div key={index} className="material-details">
-                    <p className="material-item">
-                      Items : {cur.item}
-                    </p>
-                    <p className="material-weight">Weight: {cur.weight}Kgs</p>
-                    <p className="material-quantity">
-                      Quantity: {cur.quantity}
-                    </p>
-                  </div>
-                ))}
+                <div>
+                  <p className="material-item">Goods(Kgs)</p>
+                  {ele?.materials?.materials?.map((material, index) => (
+                    <div key={index} className="material-details">
+                      <p>{material.item}</p>
+                      <p className="material-weight">
+                        Weight: {material.weight} Kgs
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 <p className="date">
                   Date: {ele?.materials.date.toString().slice(0, 15)}
                 </p>
@@ -123,7 +157,16 @@ const BookingStatus = () => {
                     setHouseToggle(!houseToggle);
                   }}
                 >
-                  update
+                  Update
+                </button>
+                <button
+                  onClick={() => {
+                    const filtered = data.filter((cur) => ele.id !== cur.id);
+                    setData(filtered);
+                    dispatch(deleteBookings(filtered));
+                  }}
+                >
+                  Delete
                 </button>
               </div>
             );

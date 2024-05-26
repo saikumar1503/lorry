@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addBookings } from "../bookingsSlice";
+import { arrowURL } from "../utilities/images";
 
 const BusinessKgs = () => {
   const materialDetails = useSelector((store) => store.businessKgs.details);
@@ -12,6 +13,17 @@ const BusinessKgs = () => {
   return (
     <>
       <div className="header">
+        <div>
+          <img
+            onClick={() => history.back()}
+            style={{
+              width: "50",
+              float: "left",
+              height: "40",
+            }}
+            src={arrowURL}
+          />
+        </div>
         <h3 className="header-title">
           {details.pickUpLocation} ➡️ {details.dropLocation}
         </h3>
@@ -25,7 +37,7 @@ const BusinessKgs = () => {
         {materialDetails.materials.map((ele, i) => (
           <>
             <p className="booking-detail">
-              <span className="detail-label">Materials{i + 1}:</span>
+              <span className="detail-label">Material {i + 1}:</span>
               {ele.item}
             </p>
 
